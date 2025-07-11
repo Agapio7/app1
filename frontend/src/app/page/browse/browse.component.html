@@ -1,0 +1,47 @@
+<section class="browse-section">
+    <!-- Section Title -->
+    <div class="section-title fade-in" appFadeIn>
+        <h2>Browse Campaigns</h2>
+        <p>Discover and support meaningful projects that make a difference</p>
+    </div>
+
+    <!-- Search & Filter Section -->
+    <div class="filter-container">
+        <input type="text" class="search-box" placeholder="Search campaigns..." [(ngModel)]="searchQuery"
+            (input)="filterCampaigns()">
+
+        <select class="filter-select" [(ngModel)]="selectedCategory" (change)="filterCampaigns()">
+            <option value="">All Categories</option>
+            <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+        </select>
+
+        <select class="filter-select" [(ngModel)]="sortOption" (change)="sortCampaigns(filteredCampaigns)">
+            <option value="newest">Newest First</option>
+            <option value="popular">Most Popular</option>
+            <option value="ending">Ending Soon</option>
+        </select>
+    </div>
+
+    <!-- Campaigns Grid -->
+    <div class="campaigns">
+        <div *ngIf="filteredCampaigns.length > 0; else noCampaigns">
+            <div *ngFor="let campaign of filteredCampaigns" class="campaign-card fade-in">
+                <span class="campaign-category-badge">{{ campaign.category }}</span>
+                <img [src]="campaign.image || 'assets/default-image.jpg'" [alt]="campaign.title" class="campaign-image">
+                <div class="campaign-content">
+                    <h3 class="campaign-title">{{ campaign.title }}</h3>
+                    <p class="campaign-description">{{ campaign.description }}</p>
+                    <div class="campaign-stats">
+                        <span class="stat-value">${{ campaign.collectedAmount }}</span> raised
+                    </div>
+                    <div>
+                        <a [routerLink]="'/campaign-details/' + campaign.campaignId" class="donate-button">Donate Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-template #noCampaigns>
+            <p class="no-campaigns-message">No campaigns found.</p>
+        </ng-template>
+    </div>
+</section>

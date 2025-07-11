@@ -1,0 +1,94 @@
+<!-- Hero Section -->
+<section class="hero">
+  <div class="main-quote">
+    <h1>Empower Change Through Giving</h1>
+    <p>Join our community of changemakers and help bring meaningful projects to life.</p>
+  </div>
+
+  <div class="carousel-container">
+    <div class="carousel">
+      <div *ngFor="let slide of slides; let i = index" class="slide" [ngClass]="{ 'active': i === currentSlide }">
+        <img [src]="slide.image" [alt]="slide.title">
+        <div class="slide-caption">
+          <h2>{{ slide.title }}</h2>
+          <p>{{ slide.description }}</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-nav prev" (click)="prevSlide()">❮</button>
+    <button class="carousel-nav next" (click)="nextSlide()">❯</button>
+
+    <div class="carousel-indicators">
+      <span *ngFor="let slide of slides; let i = index" class="dot" [ngClass]="{ 'active': i === currentSlide }"
+        (click)="goToSlide(i)"></span>
+    </div>
+  </div>
+
+  <div class="cta-container">
+    <a routerLink="/login" class="cta-button">Get Started</a>
+  </div>
+</section>
+
+<!-- Featured Campaigns -->
+<section class="featured">
+  <div class="section-title fade-in">
+    <h2>Featured Campaigns</h2>
+    <p>Support these impactful initiatives making a difference in communities worldwide</p>
+  </div>
+
+  <div class="campaigns">
+    <div *ngFor="let campaign of campaigns" class="campaign-card fade-in delay-1">
+      <span class="campaign-category-badge">{{ campaign.category }}</span>
+      <img [src]="campaign.image" [alt]="campaign.title" class="campaign-image">
+      <div class="campaign-content">
+        <h3 class="campaign-title">{{ campaign.title }}</h3>
+        <p class="campaign-description">{{ campaign.description }}</p>
+        <div class="campaign-progress">
+          <div class="progress-circle">
+            <svg viewBox="0 0 100 100">
+              <circle class="background" cx="50" cy="50" r="45" pathLength="100"></circle>
+              <circle class="progress" cx="50" cy="50" r="45" pathLength="100" [attr.stroke-dasharray]="100"
+                [attr.stroke-dashoffset]="100 - campaign.progress"></circle>
+            </svg>
+            <div class="progress-text">{{ campaign.progress }}%</div>
+          </div>
+          <div class="campaign-stats">
+            <div class="stats-row">
+              <div class="stat-item">
+                <span class="stat-value">${{ campaign.raised }}</span>
+                <span>Raised</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">{{ campaign.daysLeft }}</span>
+                <span>Days Left</span>
+              </div>
+            </div>
+            <a routerLink="/campaign-details" class="donate-button">Donate Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Categories -->
+<section class="categories">
+  <div class="categories-container">
+    <div class="section-title fade-in">
+      <h2>Browse by Category</h2>
+      <p>Discover campaigns that match your passion for change</p>
+    </div>
+    <div class="category-grid">
+      <div *ngFor="let category of categories" class="category-card fade-in delay-1">
+        <div class="category-content">
+          <div class="category-icon">{{ category.icon }}</div>
+          <h3 class="category-title">{{ category.title }}</h3>
+          <p class="category-description">{{ category.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->

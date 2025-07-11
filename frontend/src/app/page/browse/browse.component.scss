@@ -1,0 +1,142 @@
+.browse-section {
+  padding: 8rem 2rem 4rem;
+  background: linear-gradient(135deg, #fff5e6, #ff9f43);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  color: #1f2937;
+  margin-bottom: 0.4rem;
+}
+
+.section-title p {
+  font-size: 1.2rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* Filters */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.search-box {
+  padding: 0.75rem;
+  border: 2px solid #F4944E;
+  border-radius: 8px;
+  width: 250px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.filter-select {
+  padding: 0.75rem;
+  border: 2px solid #F4944E;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Campaigns Grid */
+.campaigns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Campaign Card */
+.campaign-category-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  z-index: 1;
+}
+
+.campaign-card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+}
+
+.campaign-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: .5rem;
+}
+
+.campaign-content {
+  padding: 1rem;
+  text-align: center;
+}
+
+.campaign-title {
+  font-size: 1.3rem;
+  color: #1f2937;
+  margin-bottom: 0.3rem;
+}
+
+.campaign-description {
+  color: #6b7280;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.donate-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #10b981;
+  color: white;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.donate-button:hover {
+  background-color: #059669;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .campaigns {
+    grid-template-columns: 1fr;
+  }
+
+  .campaign-title {
+    font-size: 1.2rem;
+  }
+
+  .campaign-description {
+    font-size: 0.9rem;
+  }
+}

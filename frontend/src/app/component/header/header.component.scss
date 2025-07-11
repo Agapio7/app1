@@ -1,0 +1,101 @@
+body {
+    line-height: 3;
+    color: #333;
+    margin: 0;
+}
+
+/* Navigation */
+nav {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    padding-inline: 80px;
+    position: fixed;
+    top: 0;
+    /* Ensure it sticks to the top */
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    height: 100px;
+    /* Fixed height */
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+/* Navbar Container */
+.nav-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 1rem;
+    /* Side padding */
+}
+
+/* Logo */
+.logo img {
+    height: 70px;
+    width: 250px;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #4b5563;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #F4944E;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Button */
+.button {
+    background: #F4944E;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid #F4944E;
+}
+
+.button:hover {
+    background: transparent;
+    color: #F4944E;
+    transform: translateY(-2px);
+}
+
+.button::after {
+    display: none;
+}
+
+/* Ensure navbar is clickable */
+li {
+    cursor: pointer;
+}

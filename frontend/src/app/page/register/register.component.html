@@ -1,0 +1,35 @@
+<div class="auth-container">
+    <div class="auth-box">
+      <div class="auth-header">
+        <h1>Create Account</h1>
+        <p>Join the IgniFund community</p>
+      </div>
+      <form [formGroup]="registerForm" (ngSubmit)="handleRegister()">
+        <div class="form-group">
+          <label for="first_name">First Name</label>
+          <input type="text" id="first_name" formControlName="first_name">
+        </div>
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input type="text" id="last_name" formControlName="last_name">
+        </div>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" formControlName="username">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" formControlName="email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" formControlName="password">
+        </div>
+        <button type="submit" class="auth-button">Create Account</button>
+      </form>
+      <div class="auth-footer">
+        <p>Already have an account? <a routerLink="/login">Sign in</a></p>
+      </div>
+    </div>
+  </div>
+  

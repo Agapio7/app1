@@ -1,0 +1,21 @@
+<header>
+    <nav>
+        <div class="nav-container">
+            <a routerLink="/" class="logo">
+                <img src="logo-header.png" alt="IgniFund Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a routerLink="/">Home</a></li>
+                <li><a routerLink="/about">About</a></li>
+                <li><a routerLink="/how-it-works">How It Works</a></li>
+                <li *ngIf="showBrowse"><a routerLink="/browse">Browse</a></li>
+                <li *ngIf="showStartCampaign"><a routerLink="/start-campaign">Start Campaign</a></li>
+                <!-- <li><a routerLink="/success-stories">Success Stories</a></li> -->
+                <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
+                <li *ngIf="!isLoggedIn"><a routerLink="/register" class="button">Get Started</a></li>
+                <li *ngIf="isLoggedIn"><a routerLink="/profile"> Welcome, {{ userName }}</a></li>
+                <li *ngIf="isLoggedIn"><a href="#" (click)="logout()">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>

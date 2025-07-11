@@ -1,0 +1,96 @@
+<section class="campaign-details" *ngIf="campaign">
+    <div class="campaign-container">
+      <!-- Left side: Image and progress section -->
+      <div class="campaign-left-column">
+        <!-- Campaign Image -->
+        <img [src]="campaign.image" [alt]="campaign.title" class="campaign-image" />
+  
+        <!-- Progress & Stats Container (Below Image) -->
+        <div class="campaign-stats-container">
+          <!-- Progress and Raised in same row -->
+          <div class="progress-row">
+            <!-- Circular Progress Bar -->
+            <div class="progress-circle-container">
+              <svg class="progress-circle" viewBox="0 0 100 100">
+                <circle class="background" cx="50" cy="50" r="45" pathLength="100"></circle>
+                <circle
+                  class="progress"
+                  cx="50"
+                  cy="50"
+                  r="45"
+                  pathLength="100"
+                  [attr.stroke-dasharray]="100"
+                  [attr.stroke-dashoffset]="(100 - ((campaign.collectedAmount*100)/campaign.targetAmount)).toFixed(1)"
+                ></circle>
+              </svg>
+              <div class="progress-text">{{ ((campaign.collectedAmount*100)/campaign.targetAmount).toFixed(1) }}%</div>
+            </div>
+  
+            <!-- Raised Amount -->
+            <div class="raised-container">
+              <span class="raised-amount">${{ campaign.collectedAmount }}</span>
+              <span class="raised-label">Raised of ${{ campaign.targetAmount }}</span>
+            </div>
+          </div>
+  
+          <!-- Days Left and Supporters -->
+          <div class="stats-row">
+            <div class="stat-item">
+              <span class="stat-value">{{daysLeft}}</span>
+              <span class="stat-label">End Date</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">{{ 1 }}</span>
+              <span class="stat-label">Supporters</span>
+            </div>
+          </div>
+  
+          <button class="cta-button" [routerLink]="'/donate/' + campaignId">Donate Now</button>
+  
+          <!-- Creator Info -->
+          <div class="creator-info">
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=500&h=300&fit=crop" alt="Creator" class="creator-image" />
+            <div class="creator-details">
+              <h4>Robert Parker</h4>
+              <p>Here to make a Change </p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Right side: Campaign info and details -->
+      <div class="campaign-right-column">
+        <!-- Campaign Info -->
+        <div class="campaign-info">
+          <h1>{{ campaign.title }}</h1>
+          <p class="campaign-category">{{ campaign.category }}</p>
+          <p class="campaign-description">{{ campaign.description }}</p>
+        </div>
+  
+        <!-- Campaign Details -->
+        <div class="campaign-content">
+          <h2>Our Story</h2>
+          <p> Will be added in Second Iteration </p>
+  
+          <h3>What We'll Do</h3>
+          <ul>
+            <li *ngFor="let task of tasks">{{ task }}</li>
+          </ul>
+  
+          <h3>Impact</h3>
+          <p>{{ impact }}</p>
+  
+          <h3>Proof of Work</h3>
+          <div class="proof-gallery">
+            <div *ngFor="let image of proofImages" class="proof-image-container">
+              <img [src]="image" alt="Proof of work" class="proof-image">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Show Loading Message When Data is Fetching -->
+  <p *ngIf="!campaign">Loading campaign details...</p>
+  
